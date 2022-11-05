@@ -1,0 +1,106 @@
+@import "~tailwindcss/base";
+@import "~tailwindcss/components";
+@import "~tailwindcss/utilities";
+
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400&family=Playfair+Display:ital,wght@0,400;0,600;0,900;1,400&display=swap');
+
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Quicksand', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+  scrollbar-width: thin;
+  scrollbar-color: rgb(30, 30, 30) #343a40;
+}
+
+*::-webkit-scrollbar {
+  width: 5px;
+}
+
+*::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: rgb(30, 30, 30);
+}
+
+*::-webkit-scrollbar-track {
+  background-color: #343a40;
+}
+
+#__next {
+  min-height: 100vh;
+}
+
+#particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+video::-webkit-media-controls-volume-control-container {
+  display: none;
+}
+
+#index-msg {
+    font-family: 'Quicksand', sans-serif;
+}
+
+// button classes
+.btn {
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-primary {
+  background-color: #0070f3;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background-color: #0061d5;
+}
+
+.btn-outline-primary {
+  background-color: transparent;
+  color: #d2deec;
+  border: 1px solid #0070f3;
+}
+
+.btn-outline-primary:hover {
+  background-color: #0070f3;
+  color: #fff;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  color: #fff;
+}
+
+.btn-secondary:hover {
+  background-color: #5a6268;
+}
+
+// hover float classes
+.hover-float {
+  transition: all 0.2s ease-in-out;
+}
+
+.hover-float:hover {
+  transform: translateY(-3px);
+}
