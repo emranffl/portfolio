@@ -10,7 +10,7 @@ include './portfolio/components/header.php';
             <h1 class="text-7xl" id="index-msg">Hi, I'm Emran</h1>
             <h5 class="text-3xl mt-2">a web developer, intended to<wbr> achieve perfection</h5>
 
-            <a href="<?php echo $relativePath; ?>Emran's_Resume.pdf" download>
+            <a href="<?php echo $relativePath; ?>Emran_Hossain_Resume.pdf" download>
                 <button type="button" class="btn btn-outline-primary rounded-[1.5rem!important] my-9 backdrop-blur-sm text-sm">
                     DOWNLOAD RESUME
                 </button>
