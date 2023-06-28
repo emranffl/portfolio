@@ -8,7 +8,7 @@ include './components/header.php';
 
     <h1 class="text-white text-center text-3xl mt-sm-5 mt-10 d-none">Top Projects</h1>
 
-    <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 my-20">
+    <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 my-20">
         <div class="">
             <div class="rounded backdrop-blur border border-white h-full flex flex-col">
                 <div class="">
