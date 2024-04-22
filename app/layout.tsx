@@ -3,6 +3,7 @@ import type { Metadata } from "next"
 import { Lato } from "next/font/google"
 import { cn } from "tailwind-cn"
 import dynamic from "next/dynamic"
+import Navbar from "@/components/Navbar"
 
 const lato = Lato({ weight: ["400", "700"], subsets: ["latin"] })
 // * dynamic imports
@@ -67,25 +68,7 @@ export default function RootLayout({
         )}
       >
         {/* // + navbar */}
-        <nav className="px-2 pt-2 backdrop-blur-sm print:hidden">
-          <div className="container grid grid-cols-2">
-            <a className="navbar-brand" href="/">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/media/assets/logo-bg-transparent.png" alt="Emran Hossain" className="w-36" />
-            </a>
-            <div className="flex justify-end space-x-2 align-middle text-white">
-              <a className="nav-item nav-link active font-weight-light my-auto" href="/">
-                Home
-              </a>
-              <a className="nav-item nav-link active font-weight-light my-auto" href="#projects">
-                Projects
-              </a>
-              <a className="nav-item nav-link active font-weight-light my-auto" href="#about">
-                About
-              </a>
-            </div>
-          </div>
-        </nav>
+        {/* <Navbar /> */}
 
         {/* // + main content */}
         {children}
