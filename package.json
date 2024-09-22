@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "rm -rf .next && node server.js",
+    "dev": "rm -rf .next && next dev",
     "build": "NODE_ENV=production next build",
-    "start": "NODE_ENV=production node server.js",
+    "start": "npx serve@latest out",
     "lint": "next lint"
   },
   "dependencies": {
