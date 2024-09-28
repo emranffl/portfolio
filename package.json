@@ -5,8 +5,9 @@
   "scripts": {
     "dev": "rm -rf .next && next dev",
     "build": "NODE_ENV=production next build",
-    "start": "npx serve@latest out",
-    "lint": "next lint"
+    "start": "next start",
+    "lint": "next lint",
+    "clean-build": "npm install -g pnpm && rm -rf .next pnpm-lock.yaml && pnpm install && pnpm build"
   },
   "dependencies": {
     "clsx": "^2.1.0",
