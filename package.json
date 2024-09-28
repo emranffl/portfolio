@@ -7,7 +7,7 @@
     "build": "NODE_ENV=production next build",
     "start": "next start",
     "lint": "next lint",
-    "clean-build": "npm install -g pnpm && rm -rf .next pnpm-lock.yaml && pnpm install && pnpm build"
+    "clean-build": "npm install -g bun && rm -rf .next bun.lockb && bun install && bun run build"
   },
   "dependencies": {
     "clsx": "^2.1.0",
