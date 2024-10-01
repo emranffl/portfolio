@@ -3,7 +3,7 @@ import type { Metadata } from "next"
 import { Lato } from "next/font/google"
 import { cn } from "tailwind-cn"
 import dynamic from "next/dynamic"
-import Navbar from "@/components/Navbar"
+import Navbar from "@/app/Components/Navbar"
 
 const lato = Lato({ weight: ["400", "700"], subsets: ["latin"] })
 // * dynamic imports

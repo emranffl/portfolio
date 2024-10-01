@@ -1,5 +1,4 @@
-import Lead from "@/components/Lead"
-import Projects from "@/components/Projects"
+import Lead from "@/app/Components/Lead"
 
 export default function Home() {
   return (
