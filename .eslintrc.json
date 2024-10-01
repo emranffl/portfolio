@@ -1,3 +1,11 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": ["next/core-web-vitals", "next/typescript"],
+  "rules": {
+    "@typescript-eslint/no-this-alias": "off",
+    "@typescript-eslint/no-unused-vars": [
+      "warn", // You can also use "off" if you don't want any warning
+      { "varsIgnorePattern": "^_", "argsIgnorePattern": "^_" } // Ignore unused vars starting with _
+    ],
+    "@typescript-eslint/no-explicit-any": "warn"
+  }
 }

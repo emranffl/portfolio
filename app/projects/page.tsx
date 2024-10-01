@@ -35,12 +35,11 @@
 
 "use client"
 
-import request, { gql } from "graphql-request"
 import { useEffect, useState } from "react"
 import { getAPIResponse } from "@/utils/get-api-response"
 
 const getPostDetails = async (slug: string) => {
-  const data: any = await getAPIResponse({
+  const data = await getAPIResponse({
     body: JSON.stringify({
       query: `
         query NewQuery {
