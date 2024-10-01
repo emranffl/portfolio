@@ -37,23 +37,27 @@
 
 import request, { gql } from "graphql-request"
 import { useEffect, useState } from "react"
+import { getAPIResponse } from "utils/get-api-response"
 
 const getPostDetails = async (slug: string) => {
-  const data: any = await request(
-    process.env.NEXT_PUBLIC_SITE_URL + "/graphql",
-    gql`
-      query NewQuery {
-        post(idType: SLUG, id: "hello-world") {
-          slug
-          content
-          date
-          id
-          title
-          uri
+  const data: any = await getAPIResponse({
+    body: JSON.stringify({
+      query: `
+        query NewQuery {
+          post(idType: SLUG, id: "${slug}") {
+            slug
+            content
+            date
+            id
+            title
+            uri
+            authorDatabaseId
+          }
         }
-      }
-    `
-  )
+      `,
+    }),
+    method: "POST",
+  })
 
   console.log("News Details Data:", data)
 
@@ -71,7 +75,8 @@ const Page = () => {
 
   return (
     <section className="container my-20">
-      <pre className="text-white">{JSON.stringify(data, null, 2)}</pre>
+      <pre className="whitespace-pre-wrap text-white">{JSON.stringify(data, null, 2)}</pre>
+      {/* <ProjectGrid projects={data?.projects?.nodes} /> */}
     </section>
   )
 }
