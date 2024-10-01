@@ -37,46 +37,96 @@
 
 import { useEffect, useState } from "react"
 import { getAPIResponse } from "@/utils/get-api-response"
+import ProjectsGrid from "./ProjectsGrid"
+import { getProjects } from "@/services/Project/getProjects"
 
-const getPostDetails = async (slug: string) => {
-  const data = await getAPIResponse({
-    body: JSON.stringify({
-      query: `
-        query NewQuery {
-          post(idType: SLUG, id: "${slug}") {
-            slug
-            content
-            date
-            id
-            title
-            uri
-            authorDatabaseId
-          }
-        }
-      `,
-    }),
-    method: "POST",
-  })
+// const getProjects = async () => {
+//   const data = await getAPIResponse({
+//     body: JSON.stringify({
+//       query: `
+//         query Projects {
+//           projects(first: 10) {
+//             nodes {
+//               title(format: RENDERED)
+//               slug
+//               featuredImage {
+//                 node {
+//                   mediaItemUrl
+//                   srcSet(size: MEDIUM_LARGE)
+//                 }
+//               }
+//               content(format: RENDERED)
+//               dateGmt
+//               id
+//               link
+//               modifiedGmt
+//               metaData {
+//                 codeUrl {
+//                   url
+//                 }
+//                 demoUrl {
+//                   url
+//                 }
+//                 developedAt
+//                 isFeatured
+//               }
+//               categories {
+//                 nodes {
+//                   name
+//                 }
+//               }
+//             }
+//             pageInfo {
+//               endCursor
+//               hasNextPage
+//             }
+//           }
+//           tags {
+//             nodes {
+//               name
+//             }
+//           }
+//         }
+//       `,
+//     }),
+//     method: "POST",
+//   })
 
-  console.log("News Details Data:", data)
+//   console.log("Projects Data:", data)
 
-  return data
-}
+//   return data
+// }
 
 const Page = () => {
-  const [data, setData] = useState(null)
+  const [data, setData] = useState<Awaited<ReturnType<typeof getProjects>> | null>(null)
 
   useEffect(() => {
-    getPostDetails("hello-world").then((data) => {
+    getProjects({
+      pageSize: 10,
+      endCursor: "",
+      searchText: "",
+    }).then((data) => {
+      console.log("Projects Data:222", data)
+
       setData(data)
     })
   }, [])
 
   return (
-    <section className="container my-20">
-      <pre className="whitespace-pre-wrap text-white">{JSON.stringify(data, null, 2)}</pre>
-      {/* <ProjectGrid projects={data?.projects?.nodes} /> */}
-    </section>
+    <>
+      {/* <section className="container my-20">
+        <pre className="whitespace-pre-wrap text-white">{JSON.stringify(data, null, 2)}</pre>
+      </section> */}
+      {data ? (
+        <>
+          <section className="container my-20">
+            <ProjectsGrid projects={data.nodes} />
+          </section>
+        </>
+      ) : (
+        <></>
+      )}
+    </>
   )
 }
 

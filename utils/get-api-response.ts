@@ -11,7 +11,7 @@ export interface GetAPIResponseProps {
   revalidationTime?: number
 }
 
-export const getAPIResponse = async ({
+export const getAPIResponse = async <TResponse>({
   basePath = process.env.NEXT_PUBLIC_API_BASE_URL!,
   apiPath = "",
   token = "",
@@ -49,7 +49,7 @@ export const getAPIResponse = async ({
       })
     }
 
-    return response.json()
+    return response.json() as Promise<TResponse>
   } catch (error) {
     console.error("Error retrieving data: ", error)
     return {
